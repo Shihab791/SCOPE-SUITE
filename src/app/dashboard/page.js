@@ -22,7 +22,7 @@ const statusStyle = {
 
 const filters = ["All", "Draft", "Sent", "Pending", "Signed", "Cancel"];
 
-export default function DashboardPage() {
+export default function page() {
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -31,9 +31,10 @@ export default function DashboardPage() {
     : proposals.filter((p) => p.status === activeFilter);
 
   const handleNavClick = (item) => {
-    if (item === "Proposals") router.push("/proposal-list");
-    if (item === "Templates") router.push("/templates");
+    if (item === "Proposals")  router.push("/proposals");
+    if (item === "Templates")  router.push("/templates");
     if (item === "Line-items") router.push("/line-items");
+    if (item === "Clients")    router.push("/clients");
   };
 
   return (
@@ -62,8 +63,11 @@ export default function DashboardPage() {
                 <path d="M13.73 21a2 2 0 01-3.46 0" />
               </svg>
             </button>
-            {/* User */}
-            <button className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-50 transition">
+            {/* ✅ User button — profile route added */}
+            <button
+              onClick={() => router.push("/profile")}
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-50 transition"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-gray-600">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
