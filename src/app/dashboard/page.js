@@ -22,7 +22,7 @@ const statusStyle = {
 
 const filters = ["All", "Draft", "Sent", "Pending", "Signed", "Cancel"];
 
-export default function page() {
+export default function DashboardPage() {
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState("All");
 
